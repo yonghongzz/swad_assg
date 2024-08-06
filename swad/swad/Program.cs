@@ -3,6 +3,7 @@
 User user = new User("U001", "JohnDoe", "88888888");
 
 Renter renter = new Renter(
+    user:user,
     driverLicense: "D1234567",
     isPrime: true,
     currentBooking: null,
@@ -10,10 +11,6 @@ Renter renter = new Renter(
     homeAddress: "Blk 123, Some Street, City"
 );
 
-
-renter.Id = user.Id;
-renter.UserName = user.UserName;
-renter.ContactNumber = user.ContactNumber;
 
 List<Vehicle> vehicleList = new List<Vehicle>();
 List<(DateTime Start, DateTime End)> rangeList1 = new List<(DateTime, DateTime)>
@@ -386,8 +383,11 @@ class Renter : User
     public List<Booking> BookingHistory { get { return bookingHistory; } set { bookingHistory = value; } }
     public string HomeAddress { get { return homeAddress; } set { homeAddress = value; } }
     public Renter() { }
-    public Renter(string driverLicense, bool isPrime, Booking currentBooking, List<Booking> bookingHistory, string homeAddress)
+    public Renter(User user,string driverLicense, bool isPrime, Booking currentBooking, List<Booking> bookingHistory, string homeAddress)
     {
+        Id = user.Id;
+        UserName = user.UserName;
+        ContactNumber = user.ContactNumber;
         DriverLicense = driverLicense;
         IsPrime = isPrime;
         CurrentBooking = currentBooking;
@@ -412,7 +412,7 @@ class Vehicle
     private string model;
     private int year;
     private double mileage;
-    private string photo; //url
+    private string photo; 
     private string vehicleId;
     private decimal rentalRate;
     private List<(DateTime start,DateTime end)> notAvailableDateTime;
@@ -432,10 +432,8 @@ class Vehicle
     public string VehicleInsuranceCompany { get { return vehicleInsuranceCompany; } set { vehicleInsuranceCompany = value; } }
     public bool IsDamage { get { return IsDamage; } set { isDamage = value; } }
 
-    // Default constructor
     public Vehicle() { }
 
-    // Parameterized constructor
     public Vehicle(string make, string model, int year, double mileage, string photo, string vehicleId, decimal rentalRate, List<(DateTime, DateTime)> notAvailableDateTime,List<Booking> bookings, string vehicleInsuranceCompany,bool isDamage)
     {
         Make = make;
@@ -448,7 +446,7 @@ class Vehicle
         NotAvailableDateTime = notAvailableDateTime;
         Bookings = bookings;
         VehicleInsuranceCompany = vehicleInsuranceCompany;
-        isDamage = isDamage;
+        IsDamage = isDamage;
     }
 
     public void AddBooking(Booking booking)
@@ -461,10 +459,10 @@ class Vehicle
         {
             if (start < range.end && end > range.start)
             {
-                return false; // The requested period overlaps with an unavailable period
+                return false; 
             }
         }
-        return true; // No overlap found, so the vehicle is available
+        return true; 
     }
 
     public void UpdateNotAvailableDateTime(DateTime start,DateTime end)
