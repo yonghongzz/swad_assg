@@ -1,0 +1,15 @@
+E:\swad\swad\swad\bin\Debug\net8.0\swad.exe
+E:\swad\swad\swad\bin\Debug\net8.0\swad.deps.json
+E:\swad\swad\swad\bin\Debug\net8.0\swad.runtimeconfig.json
+E:\swad\swad\swad\bin\Debug\net8.0\swad.dll
+E:\swad\swad\swad\bin\Debug\net8.0\swad.pdb
+E:\swad\swad\swad\obj\Debug\net8.0\swad.GeneratedMSBuildEditorConfig.editorconfig
+E:\swad\swad\swad\obj\Debug\net8.0\swad.AssemblyInfoInputs.cache
+E:\swad\swad\swad\obj\Debug\net8.0\swad.AssemblyInfo.cs
+E:\swad\swad\swad\obj\Debug\net8.0\swad.csproj.CoreCompileInputs.cache
+E:\swad\swad\swad\obj\Debug\net8.0\swad.sourcelink.json
+E:\swad\swad\swad\obj\Debug\net8.0\swad.dll
+E:\swad\swad\swad\obj\Debug\net8.0\refint\swad.dll
+E:\swad\swad\swad\obj\Debug\net8.0\swad.pdb
+E:\swad\swad\swad\obj\Debug\net8.0\swad.genruntimeconfig.cache
+E:\swad\swad\swad\obj\Debug\net8.0\ref\swad.dll
