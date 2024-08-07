@@ -200,7 +200,7 @@ void displayMenu()
             displayMakePaymentDone();
             booking.Status = "Booked";
 
-            booking.FinalizeBooking(renter, chosenVehicle);
+            booking.recordBooking(renter, chosenVehicle);
             chosenVehicle.UpdateNotAvailableDateTime(start, end);
             Console.WriteLine();
             i += 1;
@@ -320,7 +320,7 @@ class Booking
         Location = location;
     }
 
-    public void FinalizeBooking(Renter renter,Vehicle vehicle)
+    public void recordBooking(Renter renter,Vehicle vehicle)
     {
         renter.SetCurrentBooking(this);
         renter.AddBooking(this);
