@@ -198,11 +198,9 @@ void displayMenu()
         if (success)
         {
             displayMakePaymentDone();
-            booking.Status = "Booked"; 
-           
-            renter.SetCurrentBooking(booking);
-            renter.AddBooking(booking);
-            chosenVehicle.AddBooking(booking);
+            booking.Status = "Booked";
+
+            booking.FinalizeBooking(renter, chosenVehicle);
             chosenVehicle.UpdateNotAvailableDateTime(start, end);
             Console.WriteLine();
             i += 1;
@@ -322,6 +320,13 @@ class Booking
         Location = location;
     }
 
+    public void FinalizeBooking(Renter renter,Vehicle vehicle)
+    {
+        renter.SetCurrentBooking(this);
+        renter.AddBooking(this);
+        vehicle.AddBooking(this);
+    }
+
     public override string ToString()
     {
         return $"Start date time: {StartDateTime}\nEnd date time: {EndDateTime}\nCost: ${Cost}\nDelivery Details\n{Location.ToString()}";
@@ -430,7 +435,7 @@ class Vehicle
     public List<(DateTime start,DateTime end)> NotAvailableDateTime { get { return notAvailableDateTime; } set { notAvailableDateTime = value; } }
     public List<Booking> Bookings { get { return bookings; } set { bookings = value; } }
     public string VehicleInsuranceCompany { get { return vehicleInsuranceCompany; } set { vehicleInsuranceCompany = value; } }
-    public bool IsDamage { get { return IsDamage; } set { isDamage = value; } }
+    public bool IsDamage { get { return isDamage; } set { isDamage = value; } }
 
     public Vehicle() { }
 
