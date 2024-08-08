@@ -13,3 +13,18 @@ E:\swad\swad\swad\obj\Debug\net8.0\refint\swad.dll
 E:\swad\swad\swad\obj\Debug\net8.0\swad.pdb
 E:\swad\swad\swad\obj\Debug\net8.0\swad.genruntimeconfig.cache
 E:\swad\swad\swad\obj\Debug\net8.0\ref\swad.dll
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\bin\Debug\net8.0\swad.exe
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\bin\Debug\net8.0\swad.deps.json
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\bin\Debug\net8.0\swad.runtimeconfig.json
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\bin\Debug\net8.0\swad.dll
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\bin\Debug\net8.0\swad.pdb
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\swad.GeneratedMSBuildEditorConfig.editorconfig
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\swad.AssemblyInfoInputs.cache
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\swad.AssemblyInfo.cs
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\swad.csproj.CoreCompileInputs.cache
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\swad.sourcelink.json
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\swad.dll
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\refint\swad.dll
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\swad.pdb
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\swad.genruntimeconfig.cache
+C:\NP\Year 2 Semester 1\Software Design & Analysis\assignment\swad\swad\obj\Debug\net8.0\ref\swad.dll

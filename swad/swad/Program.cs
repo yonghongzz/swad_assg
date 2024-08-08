@@ -186,19 +186,17 @@ void displayMenu()
         DateTime bookingDateTime = DateTime.Now;
         TimeSpan duration = end - start;
         decimal cost = chosenVehicle.RentalRate * (decimal)duration.TotalHours;
-        Booking booking = new Booking(i, start, end, bookingDateTime, cost, "Pending",false,false, renter, chosenVehicle);
-        Location location = new Location(i, deliveryLocation, returnLocation);
-        booking.SetLocation(location);
+        displayRentalInformation(start, end, cost, deliveryLocation, returnLocation);
         Console.WriteLine();
 
-        displayRentalInformation(booking);
-        DateTime paymentDateTime = DateTime.Now;
-        Payment payment = new Payment(i, paymentDateTime, "Credit Card", booking.Cost);
-        bool success = payment.MakePayment(booking.Cost);
+        bool success = true;
         if (success)
         {
-            displayMakePaymentDone();
-            booking.Status = "Booked";
+            Console.WriteLine($"Payment of ${cost} done");
+            Booking booking = new Booking(i, start, end, bookingDateTime, cost, "Booked", false, false, renter, chosenVehicle);
+            Location location = new Location(i, booking, deliveryLocation, returnLocation);
+            location.SetLocation();
+            Console.WriteLine();
 
             booking.recordBooking(renter, chosenVehicle);
             chosenVehicle.UpdateNotAvailableDateTime(start, end);
@@ -209,19 +207,21 @@ void displayMenu()
     else
     {
         Console.WriteLine("Car is not available on the chosen date time!");
+        Console.WriteLine();
     }
 }
 
-void displayRentalInformation(Booking booking)
+void displayRentalInformation(DateTime startDateTime,DateTime endDateTime,decimal cost,string deliveryAddress,string returnAddress)
 {
     Console.WriteLine("Rental information");
-    Console.WriteLine(booking.ToString());
+    Console.WriteLine($"Start date time: {startDateTime}");
+    Console.WriteLine($"End date time: {endDateTime}");
+    Console.WriteLine($"Cost: ${cost}");
+    Console.WriteLine("Delivery Details");
+    Console.WriteLine($"Delivery Address: {deliveryAddress}");
+    Console.WriteLine($"Return Address: {returnAddress}");
 }
 
-void displayMakePaymentDone()
-{
-    Console.WriteLine("Make payment done");
-}
 string SelectDeliveryType()
 {
     while (true)
@@ -339,17 +339,25 @@ class Location
     private int locationId;
     private string deliveryAddress;
     private string returnAddress;
+    private Booking booking;
     public int LocationId { get { return locationId; } set { locationId = value; } }
     public string DeliveryAddress { get { return deliveryAddress; } set { deliveryAddress = value; } }
     public string ReturnAddress { get { return returnAddress; } set { returnAddress = value; } }
+    public Booking Booking { get { return booking; } set {  booking = value; } }
     public Location() { }
-    public Location(int id, string deliveryAddress,string returnAddress)
+    public Location(int id,Booking booking, string deliveryAddress,string returnAddress)
     {
         LocationId = id;
+        Booking = booking;
         DeliveryAddress = deliveryAddress;
         ReturnAddress = returnAddress;
+        Booking.SetLocation(this);
     }
 
+    public void SetLocation()
+    {
+        Booking.SetLocation(this);
+    }
     public override string ToString()
     {
         return $"Delivery address: {DeliveryAddress}\nReturn address: {ReturnAddress}";
@@ -484,7 +492,7 @@ class Payment
     private decimal paymentCost;
     public int PaymentId { get { return paymentId; } set { paymentId = value; } }
     public DateTime PaymentDateTime { get { return paymentDateTime; } set { paymentDateTime = value; } }
-    public string PaymentMethod { get { return paymentMethod; } set {paymentMethod = value; } }
+    public string PaymentMethod { get { return paymentMethod; } set { paymentMethod = value; } }
     public decimal PaymentCost { get { return paymentCost; } set { paymentCost = value; } }
 
     public Payment() { }
@@ -495,12 +503,7 @@ class Payment
         PaymentMethod = paymentMethod;
         PaymentCost = paymentCost;
     }
-
-    public bool MakePayment(decimal cost)
-    {
-        Console.WriteLine($"Payment of ${cost} done.");
-        return true;
-    }
 }
+
 
 

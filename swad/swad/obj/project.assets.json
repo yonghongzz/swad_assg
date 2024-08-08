@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\liewy\\.nuget\\packages\\": {}
+    "C:\\Users\\liewy_nav3viy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\swad\\swad\\swad\\swad.csproj",
+      "projectUniqueName": "C:\\NP\\Year 2 Semester 1\\Software Design & Analysis\\assignment\\swad\\swad\\swad.csproj",
       "projectName": "swad",
-      "projectPath": "E:\\swad\\swad\\swad\\swad.csproj",
-      "packagesPath": "C:\\Users\\liewy\\.nuget\\packages\\",
-      "outputPath": "E:\\swad\\swad\\swad\\obj\\",
+      "projectPath": "C:\\NP\\Year 2 Semester 1\\Software Design & Analysis\\assignment\\swad\\swad\\swad.csproj",
+      "packagesPath": "C:\\Users\\liewy_nav3viy\\.nuget\\packages\\",
+      "outputPath": "C:\\NP\\Year 2 Semester 1\\Software Design & Analysis\\assignment\\swad\\swad\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\liewy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\liewy_nav3viy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
