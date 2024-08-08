@@ -89,7 +89,7 @@ void displayMenu()
         for (int i = 0; i < vehicleList.Count; i++)
         {
             Vehicle vehicle = vehicleList[i];
-            Console.WriteLine($"{i + 1}: Make:{vehicle.Make,-7} Model:{vehicle.Model,-7} Year:{vehicle.Year,-7} MileAge:{vehicle.Mileage,-7} RentalRate:${vehicle.RentalRate,-2} per hour");
+            Console.WriteLine($"{i + 1}: Make:{vehicle.Make,-7} Model:{vehicle.Model,-7} Year:{vehicle.Year,-7} MileAge:{vehicle.Mileage,-7} RentalRate:${vehicle.RentalRate,-2}per hour");
         }
 
         Console.Write("Pick a vehicle to rent: ");
@@ -183,21 +183,19 @@ void displayMenu()
 
         }
         int i = 1;
-        DateTime bookingDateTime = DateTime.Now;
         TimeSpan duration = end - start;
         decimal cost = chosenVehicle.RentalRate * (decimal)duration.TotalHours;
+        Console.WriteLine();
         displayRentalInformation(start, end, cost, deliveryLocation, returnLocation);
         Console.WriteLine();
 
-        bool success = true;
+        bool success = MakePayment(cost);
         if (success)
         {
             Console.WriteLine($"Payment of ${cost} done");
-            Booking booking = new Booking(i, start, end, bookingDateTime, cost, "Booked", false, false, renter, chosenVehicle);
+            Booking booking = new Booking(i, start, end, cost, renter, chosenVehicle);
             Location location = new Location(i, booking, deliveryLocation, returnLocation);
             location.SetLocation();
-            Console.WriteLine();
-
             booking.recordBooking(renter, chosenVehicle);
             chosenVehicle.UpdateNotAvailableDateTime(start, end);
             Console.WriteLine();
@@ -222,6 +220,10 @@ void displayRentalInformation(DateTime startDateTime,DateTime endDateTime,decima
     Console.WriteLine($"Return Address: {returnAddress}");
 }
 
+bool MakePayment(decimal cost)
+{
+    return true;
+}
 string SelectDeliveryType()
 {
     while (true)
@@ -299,16 +301,16 @@ class Booking
     public Vehicle Vehicle { get { return vehicle; } set { vehicle = value; } }
 
     public Booking() { }
-    public Booking(int id, DateTime startDateTime, DateTime endDateTime, DateTime bookingDate, decimal cost, string status,bool isAuthorized, bool isReturnedLate,Renter renter,Vehicle vehicle)
+    public Booking(int id, DateTime startDateTime, DateTime endDateTime, decimal cost,Renter renter,Vehicle vehicle)
     {
         Id = id;
         StartDateTime = startDateTime;
         EndDateTime = endDateTime;
-        BookingDate = bookingDate;
+        BookingDate = DateTime.Now;
         Cost = cost;
-        Status = status;
-        IsAuthorized = isAuthorized;
-        IsReturnedLate = isReturnedLate;
+        Status = "Booked";
+        IsAuthorized = false;
+        IsReturnedLate = false;
         Renter = renter;
         Vehicle = vehicle;
         Location = new Location();
